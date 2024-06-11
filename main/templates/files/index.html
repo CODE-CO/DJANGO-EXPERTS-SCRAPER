@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper</title>
+    <link rel="stylesheet" href="{% static 'files/css/styles.css' %}">
+</head>
+<body>
+    <h1>👷‍♂️EXPERT WEB SCRAPER👷‍♀️</h1>
+    <form id="scrape-form" method="post" data-scrape-url="{% url 'get_file_content' %}">
+        {% csrf_token %}
+        <div id="content-display" class="scrolling-text"></div>
+        <div id="radio-container" class="radio-group">
+            <label>
+                <input type="radio" name="filter" value="all" checked>
+                👷‍♂️👷‍♀️
+            </label>
+            <label>
+                <input type="radio" name="filter" value="men">
+                👷‍♂️
+            </label>
+            <label>
+                <input type="radio" name="filter" value="women">
+                👷‍♀️
+            </label>
+        </div>
+        <button type="button" id="load-content-button">Load Content</button>
+        <div id="message"></div>
+    </form>
+    <script src="{% static 'files/js/script.js' %}"></script>
+</body>
+</html>
